@@ -1,0 +1,35 @@
+digraph "cla8" {
+label="cla8";
+rankdir="LR";
+remincross=true;
+n1 [ shape=diamond, label="c4", color="black", fontcolor="black"];
+n2 [ shape=octagon, label="cout", color="black", fontcolor="black"];
+n3 [ shape=octagon, label="sum", color="black", fontcolor="black"];
+n4 [ shape=octagon, label="cin", color="black", fontcolor="black"];
+n5 [ shape=octagon, label="b", color="black", fontcolor="black"];
+n6 [ shape=octagon, label="a", color="black", fontcolor="black"];
+c7 [ shape=record, label="{{<p6> a|<p5> b|<p4> cin}|high\ncla4|{<p2> cout|<p3> sum}}",  ];
+x0 [ shape=record, style=rounded, label="<s0> 3:0 - 7:4 ", color="black", fontcolor="black" ];
+c7:p3:e -> x0:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+x1 [ shape=record, style=rounded, label="<s0> 7:4 - 3:0 ", color="black", fontcolor="black" ];
+x1:e -> c7:p5:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+x2 [ shape=record, style=rounded, label="<s0> 7:4 - 3:0 ", color="black", fontcolor="black" ];
+x2:e -> c7:p6:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+c8 [ shape=record, label="{{<p6> a|<p5> b|<p4> cin}|low\ncla4|{<p2> cout|<p3> sum}}",  ];
+x3 [ shape=record, style=rounded, label="<s0> 3:0 - 3:0 ", color="black", fontcolor="black" ];
+c8:p3:e -> x3:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+x4 [ shape=record, style=rounded, label="<s0> 3:0 - 3:0 ", color="black", fontcolor="black" ];
+x4:e -> c8:p5:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+x5 [ shape=record, style=rounded, label="<s0> 3:0 - 3:0 ", color="black", fontcolor="black" ];
+x5:e -> c8:p6:w [arrowhead=odiamond, arrowtail=odiamond, dir=both, color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+c8:p2:e -> n1:w [color="black", fontcolor="black", label=""];
+n1:e -> c7:p4:w [color="black", fontcolor="black", label=""];
+c7:p2:e -> n2:w [color="black", fontcolor="black", label=""];
+x0:s0:e -> n3:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+x3:s0:e -> n3:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n4:e -> c8:p4:w [color="black", fontcolor="black", label=""];
+n5:e -> x1:s0:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n5:e -> x4:s0:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n6:e -> x2:s0:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+n6:e -> x5:s0:w [color="black", fontcolor="black", style="setlinewidth(3)", label=""];
+}
