@@ -1,4 +1,4 @@
-# Cấp 1 — Core Utilization Sweep (CLA8)
+# Core Utilization Sweep (CLA8)
 
 PDK: sky130A
 Design: cla8 (8-bit Carry Lookahead Adder)
