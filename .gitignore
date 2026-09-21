@@ -1,4 +1,38 @@
+# GDS files (layout, heavy binary — regenerate via OpenLane flow)
+runs/**/*.gds
+
+# Temp files
 runs/*/tmp/
-runs/*/*.gds
-runs/*/*/*.gds
 *.vcd
+
+# Compiled test binaries (regenerate with: iverilog -o <name> src/*.v)
+acc32_check
+acc32_sram_check
+acc32_sram_test
+acc32_test
+acc8_check
+acc8_test
+cla32_test
+cla4_test
+cla8_test
+
+# Stray/intermediate debug runs not referenced in results.md
+runs/RUN_2026-09-20_15-10-11/
+runs/RUN_2026-09-20_15-10-58/
+runs/RUN_2026-09-20_15-12-08/
+runs/RUN_2026-09-20_15-15-55/
+runs/RUN_2026-09-20_15-18-32/
+runs/RUN_2026-09-20_15-19-35/
+runs/RUN_SRAM_DOCKER/
+
+# SRAM integration debug runs (v1-v8) - superseded by v9 (baseline) and v10 (tap density control)
+runs/acc32_sram_v1/
+runs/acc32_sram_v2/
+runs/acc32_sram_v3/
+runs/acc32_sram_v4/
+runs/acc32_sram_v5/
+runs/acc32_sram_v6/
+runs/acc32_sram_v7/
+runs/acc32_sram_v8/
+
+archive_debug_runs/

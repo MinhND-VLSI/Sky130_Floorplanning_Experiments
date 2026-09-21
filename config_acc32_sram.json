@@ -1,0 +1,50 @@
+{
+    "DESIGN_NAME": "acc32_sram",
+
+    "VERILOG_FILES": [
+        "dir::src/cla4.v",
+        "dir::src/cla32.v",
+        "dir::src/acc32.v",
+        "dir::src/acc32_sram.v",
+        "dir::macros/blackbox/sky130_sram_1kbyte_1rw1r_32x256_8_bb.v"
+    ],
+
+    "CLOCK_PORT": "clk",
+    "CLOCK_PERIOD": 50,
+
+    "FP_CORE_UTIL": 40,
+    "FP_TAPCELL_DIST": 10,
+    "FP_SIZING": "relative",
+    "MAX_TRANSITION_CONSTRAINT": 0.15,
+
+    "MAGIC_DRC_USE_GDS": false,
+    "MAGIC_LEF_WRITE_USE_GDS": false,
+    "MAGIC_CAPTURE_ERRORS": false,
+
+    "MACROS": {
+        "sky130_sram_1kbyte_1rw1r_32x256_8": {
+            "instances": {
+                "sram0": {
+                    "location": [50, 50],
+                    "orientation": "N"
+                }
+            },
+
+            "gds": [
+                "dir::macros/sky130_sram_macros/sky130_sram_1kbyte_1rw1r_32x256_8/sky130_sram_1kbyte_1rw1r_32x256_8.gds"
+            ],
+            "lef": [
+                "dir::macros/sky130_sram_macros/sky130_sram_1kbyte_1rw1r_32x256_8/sky130_sram_1kbyte_1rw1r_32x256_8.lef"
+            ],
+            "lib": {
+                "*": [
+                    "dir::macros/sky130_sram_macros/sky130_sram_1kbyte_1rw1r_32x256_8/sky130_sram_1kbyte_1rw1r_32x256_8_TT_1p8V_25C.lib"
+                ]
+            }
+        }
+    },
+
+    "PDN_MACRO_CONNECTIONS": [
+        "sram0 vccd1 vssd1 vccd1 vssd1"
+    ]
+}

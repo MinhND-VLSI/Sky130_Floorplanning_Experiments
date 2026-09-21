@@ -1,0 +1,359 @@
+
+===========================================================================
+report_checks -unconstrained
+===========================================================================
+======================= max_ff_n40C_1v95 Corner ===================================
+
+Startpoint: rst (input port clocked by clk)
+Endpoint: _645_ (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                 10.000000   10.000000 v input external delay
+     1    0.002996    0.005001    0.002490   10.002491 v rst (in)
+                                                         rst (net)
+                      0.005008    0.000000   10.002491 v input1/A (sky130_fd_sc_hd__clkbuf_1)
+     1    0.005886    0.029280    0.056478   10.058969 v input1/X (sky130_fd_sc_hd__clkbuf_1)
+                                                         net1 (net)
+                      0.029288    0.000466   10.059435 v wire673/A (sky130_fd_sc_hd__clkbuf_1)
+     1    0.008718    0.039561    0.074327   10.133762 v wire673/X (sky130_fd_sc_hd__clkbuf_1)
+                                                         net673 (net)
+                      0.039578    0.000767   10.134530 v fanout672/A (sky130_fd_sc_hd__buf_4)
+     8    0.100880    0.094856    0.145382   10.279912 v fanout672/X (sky130_fd_sc_hd__buf_4)
+                                                         net672 (net)
+                      0.102569    0.020647   10.300560 v fanout667/A (sky130_fd_sc_hd__clkbuf_4)
+     8    0.050307    0.077182    0.168360   10.468920 v fanout667/X (sky130_fd_sc_hd__clkbuf_4)
+                                                         net667 (net)
+                      0.077313    0.002801   10.471721 v _571_/A (sky130_fd_sc_hd__inv_2)
+     1    0.010975    0.047997    0.064933   10.536654 ^ _571_/Y (sky130_fd_sc_hd__inv_2)
+                                                         _053_ (net)
+                      0.048026    0.000952   10.537605 ^ _645_/RESET_B (sky130_fd_sc_hd__dfrtp_1)
+                                             10.537605   data arrival time
+
+                                 50.000000   50.000000   clock clk (rise edge)
+                                  0.000000   50.000000   clock source latency
+     1    0.037386    0.129495    0.090381   50.090378 ^ clk (in)
+                                                         clk (net)
+                      0.129548    0.000000   50.090378 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     8    0.147072    0.124048    0.174161   50.264542 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.125625    0.011131   50.275673 ^ clkbuf_3_1__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     9    0.042221    0.047388    0.122402   50.398071 ^ clkbuf_3_1__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_3_1__leaf_clk (net)
+                      0.047650    0.002053   50.400127 ^ _645_/CLK (sky130_fd_sc_hd__dfrtp_1)
+                                 -0.250000   50.150124   clock uncertainty
+                                  0.000000   50.150124   clock reconvergence pessimism
+                                  0.142978   50.293106   library recovery time
+                                             50.293106   data required time
+---------------------------------------------------------------------------------------------
+                                             50.293106   data required time
+                                            -10.537605   data arrival time
+---------------------------------------------------------------------------------------------
+                                             39.755501   slack (MET)
+
+
+Startpoint: sram0 (falling edge-triggered flip-flop clocked by clk)
+Endpoint: _604_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                 25.000000   25.000000   clock clk (fall edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.036423    0.056668    0.040327   25.040325 v clk (in)
+                                                         clk (net)
+                      0.056777    0.000000   25.040325 v clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     8    0.139368    0.075342    0.151156   25.191483 v clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.079747    0.014204   25.205685 v clkbuf_3_2__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+    10    0.050349    0.039360    0.132502   25.338188 v clkbuf_3_2__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_3_2__leaf_clk (net)
+                      0.053263    0.003446   25.341633 v sram0/clk0 (sky130_sram_1kbyte_1rw1r_32x256_8)
+     2    0.018056    0.010942    0.430662   25.772295 v sram0/dout0[2] (sky130_sram_1kbyte_1rw1r_32x256_8)
+                                                         dout0[2] (net)
+                      0.008207    0.000730   25.773026 v _604_/D (sky130_fd_sc_hd__dfrtp_1)
+                                             25.773026   data arrival time
+
+                                 50.000000   50.000000   clock clk (rise edge)
+                                  0.000000   50.000000   clock source latency
+     1    0.037386    0.129495    0.090381   50.090378 ^ clk (in)
+                                                         clk (net)
+                      0.129548    0.000000   50.090378 ^ clkbuf_0_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     8    0.147072    0.124048    0.174161   50.264542 ^ clkbuf_0_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_0_clk (net)
+                      0.125933    0.012136   50.276676 ^ clkbuf_3_0__f_clk/A (sky130_fd_sc_hd__clkbuf_16)
+     7    0.043911    0.048740    0.123823   50.400501 ^ clkbuf_3_0__f_clk/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         clknet_3_0__leaf_clk (net)
+                      0.049008    0.002597   50.403095 ^ _604_/CLK (sky130_fd_sc_hd__dfrtp_1)
+                                 -0.250000   50.153095   clock uncertainty
+                                  0.000000   50.153095   clock reconvergence pessimism
+                                 -0.062317   50.090778   library setup time
+                                             50.090778   data required time
+---------------------------------------------------------------------------------------------
+                                             50.090778   data required time
+                                            -25.773026   data arrival time
+---------------------------------------------------------------------------------------------
+                                             24.317753   slack (MET)
+
+
+
+
+===========================================================================
+report_checks --slack_max -0.01
+============================================================================
+======================= max_ff_n40C_1v95 Corner ===================================
+
+No paths found.
+
+
+===========================================================================
+ report_check_types -max_slew -max_cap -max_fanout -violators
+============================================================================
+======================= max_ff_n40C_1v95 Corner ===================================
+
+max slew
+
+Pin                                        Limit        Slew       Slack
+------------------------------------------------------------------------
+sram0/addr0[1]                          0.040000    0.182961   -0.142961 (VIOLATED)
+sram0/addr0[2]                          0.040000    0.181542   -0.141542 (VIOLATED)
+sram0/addr0[3]                          0.040000    0.160612   -0.120612 (VIOLATED)
+sram0/addr0[0]                          0.040000    0.156671   -0.116671 (VIOLATED)
+sram0/addr0[6]                          0.040000    0.139245   -0.099245 (VIOLATED)
+sram0/addr0[4]                          0.040000    0.138140   -0.098140 (VIOLATED)
+sram0/addr0[7]                          0.040000    0.133034   -0.093034 (VIOLATED)
+sram0/din0[18]                          0.150000    0.237612   -0.087612 (VIOLATED)
+sram0/addr0[5]                          0.040000    0.122418   -0.082418 (VIOLATED)
+max_cap98/A                             0.150000    0.226601   -0.076601 (VIOLATED)
+_478_/B                                 0.150000    0.226591   -0.076591 (VIOLATED)
+_477_/Y                                 0.150000    0.226589   -0.076589 (VIOLATED)
+fanout671/A                             0.150000    0.220918   -0.070918 (VIOLATED)
+fanout670/A                             0.150000    0.220809   -0.070809 (VIOLATED)
+sram0/din0[10]                          0.150000    0.220738   -0.070738 (VIOLATED)
+fanout669/A                             0.150000    0.220259   -0.070259 (VIOLATED)
+fanout668/A                             0.150000    0.219608   -0.069608 (VIOLATED)
+fanout667/A                             0.150000    0.218959   -0.068959 (VIOLATED)
+fanout666/A                             0.150000    0.218402   -0.068402 (VIOLATED)
+fanout665/A                             0.150000    0.215651   -0.065651 (VIOLATED)
+fanout664/A                             0.150000    0.215584   -0.065584 (VIOLATED)
+fanout672/X                             0.150000    0.215548   -0.065548 (VIOLATED)
+sram0/din0[8]                           0.150000    0.214055   -0.064055 (VIOLATED)
+max_cap218/A                            0.150000    0.211866   -0.061866 (VIOLATED)
+_377_/B                                 0.150000    0.211864   -0.061864 (VIOLATED)
+_376_/Y                                 0.150000    0.211859   -0.061859 (VIOLATED)
+sram0/din0[13]                          0.150000    0.205033   -0.055033 (VIOLATED)
+sram0/din0[19]                          0.150000    0.196933   -0.046933 (VIOLATED)
+max_cap337/A                            0.150000    0.196437   -0.046437 (VIOLATED)
+_350_/B                                 0.150000    0.196435   -0.046435 (VIOLATED)
+_348_/Y                                 0.150000    0.196430   -0.046430 (VIOLATED)
+sram0/din0[11]                          0.150000    0.195116   -0.045116 (VIOLATED)
+_348_/A1                                0.150000    0.194774   -0.044774 (VIOLATED)
+_347_/A                                 0.150000    0.194773   -0.044773 (VIOLATED)
+_351_/A1                                0.150000    0.194766   -0.044766 (VIOLATED)
+_353_/A                                 0.150000    0.194765   -0.044765 (VIOLATED)
+_359_/A                                 0.150000    0.194752   -0.044752 (VIOLATED)
+_360_/A1                                0.150000    0.194747   -0.044747 (VIOLATED)
+fanout594/X                             0.150000    0.194743   -0.044743 (VIOLATED)
+sram0/din0[9]                           0.150000    0.193722   -0.043722 (VIOLATED)
+sram0/din0[17]                          0.150000    0.190967   -0.040967 (VIOLATED)
+max_cap494/A                            0.150000    0.190319   -0.040319 (VIOLATED)
+_490_/B                                 0.150000    0.190314   -0.040314 (VIOLATED)
+max_cap495/X                            0.150000    0.190276   -0.040276 (VIOLATED)
+wire458/A                               0.150000    0.188645   -0.038645 (VIOLATED)
+wire459/X                               0.150000    0.188627   -0.038627 (VIOLATED)
+sram0/din0[16]                          0.150000    0.187453   -0.037453 (VIOLATED)
+sram0/din0[3]                           0.150000    0.185966   -0.035966 (VIOLATED)
+fanout593/A                             0.150000    0.185473   -0.035473 (VIOLATED)
+max_cap603/A                            0.150000    0.185470   -0.035470 (VIOLATED)
+max_cap604/X                            0.150000    0.185452   -0.035452 (VIOLATED)
+max_cap135/A                            0.150000    0.182589   -0.032589 (VIOLATED)
+_419_/B                                 0.150000    0.182585   -0.032585 (VIOLATED)
+_357_/Y                                 0.150000    0.182579   -0.032579 (VIOLATED)
+sram0/din0[2]                           0.150000    0.179690   -0.029690 (VIOLATED)
+wire654/X                               0.150000    0.178194   -0.028194 (VIOLATED)
+_477_/A1                                0.150000    0.176711   -0.026711 (VIOLATED)
+max_cap331/A                            0.150000    0.176711   -0.026711 (VIOLATED)
+max_cap332/X                            0.150000    0.176698   -0.026698 (VIOLATED)
+sram0/din0[20]                          0.150000    0.175878   -0.025878 (VIOLATED)
+sram0/din0[7]                           0.150000    0.175776   -0.025776 (VIOLATED)
+sram0/din0[12]                          0.150000    0.175326   -0.025326 (VIOLATED)
+fanout597/A                             0.150000    0.175138   -0.025138 (VIOLATED)
+fanout596/A                             0.150000    0.175063   -0.025063 (VIOLATED)
+_432_/A1                                0.150000    0.175017   -0.025017 (VIOLATED)
+sram0/din0[14]                          0.150000    0.174971   -0.024971 (VIOLATED)
+_433_/A                                 0.150000    0.174954   -0.024954 (VIOLATED)
+_437_/A                                 0.150000    0.174945   -0.024945 (VIOLATED)
+_436_/A1                                0.150000    0.174879   -0.024879 (VIOLATED)
+fanout595/A                             0.150000    0.174783   -0.024783 (VIOLATED)
+fanout598/X                             0.150000    0.174760   -0.024760 (VIOLATED)
+max_cap495/A                            0.150000    0.174290   -0.024290 (VIOLATED)
+_485_/A1                                0.150000    0.174280   -0.024280 (VIOLATED)
+max_cap496/X                            0.150000    0.174265   -0.024265 (VIOLATED)
+max_cap101/A                            0.150000    0.171483   -0.021483 (VIOLATED)
+_490_/C                                 0.150000    0.171470   -0.021470 (VIOLATED)
+wire102/X                               0.150000    0.171448   -0.021448 (VIOLATED)
+_344_/A1                                0.150000    0.170634   -0.020634 (VIOLATED)
+_345_/A                                 0.150000    0.170633   -0.020633 (VIOLATED)
+_365_/A                                 0.150000    0.170570   -0.020570 (VIOLATED)
+_363_/A1                                0.150000    0.170538   -0.020538 (VIOLATED)
+_362_/A                                 0.150000    0.170537   -0.020537 (VIOLATED)
+_366_/A1                                0.150000    0.170512   -0.020512 (VIOLATED)
+_369_/A                                 0.150000    0.170476   -0.020476 (VIOLATED)
+_372_/A1                                0.150000    0.170442   -0.020442 (VIOLATED)
+_375_/A                                 0.150000    0.170360   -0.020360 (VIOLATED)
+_376_/A1                                0.150000    0.170358   -0.020358 (VIOLATED)
+fanout593/X                             0.150000    0.170328   -0.020328 (VIOLATED)
+_351_/B1                                0.150000    0.166549   -0.016549 (VIOLATED)
+max_cap542/A                            0.150000    0.166546   -0.016546 (VIOLATED)
+wire543/X                               0.150000    0.166535   -0.016535 (VIOLATED)
+wire662/X                               0.150000    0.165518   -0.015518 (VIOLATED)
+_462_/A                                 0.150000    0.163522   -0.013522 (VIOLATED)
+max_cap132/A                            0.150000    0.163521   -0.013521 (VIOLATED)
+_407_/Y                                 0.150000    0.163519   -0.013519 (VIOLATED)
+max_cap92/A                             0.150000    0.162280   -0.012280 (VIOLATED)
+_486_/B                                 0.150000    0.162278   -0.012278 (VIOLATED)
+_485_/Y                                 0.150000    0.162276   -0.012276 (VIOLATED)
+wire627/X                               0.150000    0.160517   -0.010517 (VIOLATED)
+max_cap335/A                            0.150000    0.160463   -0.010463 (VIOLATED)
+_354_/A                                 0.150000    0.160461   -0.010461 (VIOLATED)
+_351_/Y                                 0.150000    0.160460   -0.010460 (VIOLATED)
+sram0/din0[15]                          0.150000    0.160051   -0.010051 (VIOLATED)
+_428_/A                                 0.150000    0.158283   -0.008283 (VIOLATED)
+_427_/A1                                0.150000    0.158273   -0.008273 (VIOLATED)
+_330_/A1                                0.150000    0.158164   -0.008164 (VIOLATED)
+_329_/A                                 0.150000    0.158134   -0.008134 (VIOLATED)
+_332_/A1                                0.150000    0.158117   -0.008117 (VIOLATED)
+_334_/A                                 0.150000    0.158112   -0.008112 (VIOLATED)
+_327_/A                                 0.150000    0.158006   -0.008006 (VIOLATED)
+_326_/A1                                0.150000    0.157970   -0.007970 (VIOLATED)
+_341_/A                                 0.150000    0.157952   -0.007952 (VIOLATED)
+_342_/A1                                0.150000    0.157907   -0.007907 (VIOLATED)
+fanout595/X                             0.150000    0.157862   -0.007862 (VIOLATED)
+wire423/A                               0.150000    0.157336   -0.007336 (VIOLATED)
+wire424/X                               0.150000    0.157317   -0.007317 (VIOLATED)
+_566_/A                                 0.150000    0.156905   -0.006905 (VIOLATED)
+_563_/A                                 0.150000    0.156892   -0.006892 (VIOLATED)
+_564_/A                                 0.150000    0.156891   -0.006891 (VIOLATED)
+_562_/A                                 0.150000    0.156751   -0.006751 (VIOLATED)
+_561_/A                                 0.150000    0.156487   -0.006487 (VIOLATED)
+sram0/din0[5]                           0.150000    0.156356   -0.006356 (VIOLATED)
+_560_/A                                 0.150000    0.156347   -0.006347 (VIOLATED)
+_565_/A                                 0.150000    0.156269   -0.006269 (VIOLATED)
+_527_/A                                 0.150000    0.156253   -0.006253 (VIOLATED)
+_526_/A                                 0.150000    0.156195   -0.006195 (VIOLATED)
+sram0/din0[21]                          0.150000    0.155381   -0.005381 (VIOLATED)
+_519_/A                                 0.150000    0.155374   -0.005374 (VIOLATED)
+fanout664/X                             0.150000    0.155264   -0.005264 (VIOLATED)
+sram0/din0[6]                           0.150000    0.154479   -0.004479 (VIOLATED)
+sram0/din0[1]                           0.150000    0.154006   -0.004006 (VIOLATED)
+wire659/X                               0.150000    0.153764   -0.003764 (VIOLATED)
+wire490/A                               0.150000    0.152205   -0.002205 (VIOLATED)
+wire491/X                               0.150000    0.152188   -0.002188 (VIOLATED)
+_366_/B1                                0.150000    0.151028   -0.001028 (VIOLATED)
+max_cap549/A                            0.150000    0.151016   -0.001016 (VIOLATED)
+wire550/X                               0.150000    0.151003   -0.001003 (VIOLATED)
+wire106/A                               0.150000    0.150806   -0.000806 (VIOLATED)
+max_cap107/A                            0.150000    0.150789   -0.000789 (VIOLATED)
+wire108/X                               0.150000    0.150786   -0.000785 (VIOLATED)
+
+max fanout
+
+Pin                                   Limit Fanout  Slack
+---------------------------------------------------------
+clkbuf_3_5__f_clk/X                      10     15     -5 (VIOLATED)
+clkbuf_3_4__f_clk/X                      10     12     -2 (VIOLATED)
+clkbuf_3_6__f_clk/X                      10     12     -2 (VIOLATED)
+
+
+
+===========================================================================
+report_parasitic_annotation -report_unannotated
+============================================================================
+Found 54 unannotated drivers.
+ clkload0/Y
+ clkload1/Y
+ clkload2/Y
+ clkload3/Y
+ clkload4/Y
+ clkload5/Y
+ clkload6/Y
+ sram0/dout1[0]
+ sram0/dout1[10]
+ sram0/dout1[11]
+ sram0/dout1[12]
+ sram0/dout1[13]
+ sram0/dout1[14]
+ sram0/dout1[15]
+ sram0/dout1[16]
+ sram0/dout1[17]
+ sram0/dout1[18]
+ sram0/dout1[19]
+ sram0/dout1[1]
+ sram0/dout1[20]
+ sram0/dout1[21]
+ sram0/dout1[22]
+ sram0/dout1[23]
+ sram0/dout1[24]
+ sram0/dout1[25]
+ sram0/dout1[26]
+ sram0/dout1[27]
+ sram0/dout1[28]
+ sram0/dout1[29]
+ sram0/dout1[2]
+ sram0/dout1[30]
+ sram0/dout1[31]
+ sram0/dout1[3]
+ sram0/dout1[4]
+ sram0/dout1[5]
+ sram0/dout1[6]
+ sram0/dout1[7]
+ sram0/dout1[8]
+ sram0/dout1[9]
+ sram0_674/HI
+ sram0_675/HI
+ sram0_676/HI
+ sram0_677/HI
+ sram0_678/HI
+ sram0_679/HI
+ sram0_680/HI
+ sram0_681/HI
+ sram0_682/HI
+ sram0_683/HI
+ sram0_684/LO
+ sram0_685/LO
+ sram0_686/LO
+ sram0_687/LO
+ sram0_688/LO
+Found 0 partially unannotated drivers.
+
+===========================================================================
+max slew violation count 140
+max fanout violation count 3
+max cap violation count 0
+============================================================================
+
+===========================================================================
+check_setup -verbose -unconstrained_endpoints -multiple_clock -no_clock -no_input_delay -loops -generated_clocks
+===========================================================================
+Warning: There is 1 unclocked register/latch pin.
+  sram0/clk1
+Warning: There are 14 unconstrained endpoints.
+  sram0/addr1[0]
+  sram0/addr1[1]
+  sram0/addr1[2]
+  sram0/addr1[3]
+  sram0/addr1[4]
+  sram0/addr1[5]
+  sram0/addr1[6]
+  sram0/addr1[7]
+  sram0/csb0
+  sram0/csb1
+  sram0/wmask0[0]
+  sram0/wmask0[1]
+  sram0/wmask0[2]
+  sram0/wmask0[3]

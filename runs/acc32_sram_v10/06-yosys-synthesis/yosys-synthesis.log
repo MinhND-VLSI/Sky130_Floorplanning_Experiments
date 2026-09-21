@@ -1,0 +1,1216 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2024  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 17.0.6 -fPIC -O3)
+Loaded SDC plugin
+
+1. Executing Liberty frontend: /home/minhnd/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+Imported 428 cell types from liberty file.
+
+2. Executing Liberty frontend: /home/minhnd/projects/CLA32_Floorplanning/macros/sky130_sram_macros/sky130_sram_1kbyte_1rw1r_32x256_8/sky130_sram_1kbyte_1rw1r_32x256_8_TT_1p8V_25C.lib
+Imported 1 cell types from liberty file.
+[INFO] Using SDC file '/home/minhnd/projects/CLA32_Floorplanning/runs/acc32_sram_v10/06-yosys-synthesis/synthesis.abc.sdc' for ABC…
+
+3. Executing Verilog-2005 frontend: /home/minhnd/projects/CLA32_Floorplanning/src/cla4.v
+Parsing SystemVerilog input from `/home/minhnd/projects/CLA32_Floorplanning/src/cla4.v' to AST representation.
+Storing AST representation for module `$abstract\cla4'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: /home/minhnd/projects/CLA32_Floorplanning/src/cla32.v
+Parsing SystemVerilog input from `/home/minhnd/projects/CLA32_Floorplanning/src/cla32.v' to AST representation.
+Storing AST representation for module `$abstract\cla32'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: /home/minhnd/projects/CLA32_Floorplanning/src/acc32.v
+Parsing SystemVerilog input from `/home/minhnd/projects/CLA32_Floorplanning/src/acc32.v' to AST representation.
+Storing AST representation for module `$abstract\acc32'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: /home/minhnd/projects/CLA32_Floorplanning/src/acc32_sram.v
+Parsing SystemVerilog input from `/home/minhnd/projects/CLA32_Floorplanning/src/acc32_sram.v' to AST representation.
+Storing AST representation for module `$abstract\acc32_sram'.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: /home/minhnd/projects/CLA32_Floorplanning/macros/blackbox/sky130_sram_1kbyte_1rw1r_32x256_8_bb.v
+Parsing SystemVerilog input from `/home/minhnd/projects/CLA32_Floorplanning/macros/blackbox/sky130_sram_1kbyte_1rw1r_32x256_8_bb.v' to AST representation.
+Storing AST representation for module `$abstract\sky130_sram_1kbyte_1rw1r_32x256_8'.
+Successfully finished Verilog frontend.
+
+8. Executing HIERARCHY pass (managing design hierarchy).
+
+9. Executing AST frontend in derive mode using pre-parsed AST for module `\acc32_sram'.
+Generating RTLIL representation for module `\acc32_sram'.
+
+9.1. Analyzing design hierarchy..
+Top module:  \acc32_sram
+
+9.2. Executing AST frontend in derive mode using pre-parsed AST for module `\acc32'.
+Generating RTLIL representation for module `\acc32'.
+
+9.3. Analyzing design hierarchy..
+Top module:  \acc32_sram
+Used module:     \acc32
+
+9.4. Executing AST frontend in derive mode using pre-parsed AST for module `\cla32'.
+Generating RTLIL representation for module `\cla32'.
+
+9.5. Analyzing design hierarchy..
+Top module:  \acc32_sram
+Used module:     \acc32
+Used module:         \cla32
+
+9.6. Executing AST frontend in derive mode using pre-parsed AST for module `\cla4'.
+Generating RTLIL representation for module `\cla4'.
+
+9.7. Analyzing design hierarchy..
+Top module:  \acc32_sram
+Used module:     \acc32
+Used module:         \cla32
+Used module:             \cla4
+
+9.8. Analyzing design hierarchy..
+Top module:  \acc32_sram
+Used module:     \acc32
+Used module:         \cla32
+Used module:             \cla4
+Removing unused module `$abstract\acc32_sram'.
+Removing unused module `$abstract\acc32'.
+Removing unused module `$abstract\cla32'.
+Removing unused module `$abstract\cla4'.
+Removed 4 unused modules.
+Renaming module acc32_sram to acc32_sram.
+
+10. Generating Graphviz representation of design.
+Writing dot description to `/home/minhnd/projects/CLA32_Floorplanning/runs/acc32_sram_v10/06-yosys-synthesis/hierarchy.dot'.
+Dumping module acc32_sram to page 1.
+
+11. Executing TRIBUF pass.
+
+12. Executing HIERARCHY pass (managing design hierarchy).
+
+12.1. Analyzing design hierarchy..
+Top module:  \acc32_sram
+Used module:     \acc32
+Used module:         \cla32
+Used module:             \cla4
+
+12.2. Analyzing design hierarchy..
+Top module:  \acc32_sram
+Used module:     \acc32
+Used module:         \cla32
+Used module:             \cla4
+Removed 0 unused modules.
+
+13. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+14. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$/home/minhnd/projects/CLA32_Floorplanning/src/acc32_sram.v:19$3 in module acc32_sram.
+Marked 1 switch rules as full_case in process $proc$/home/minhnd/projects/CLA32_Floorplanning/src/acc32.v:18$7 in module acc32.
+Removed a total of 0 dead cases.
+
+15. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 5 redundant assignments.
+Promoted 0 assignments to connections.
+
+16. Executing PROC_INIT pass (extract init attributes).
+
+17. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst in `\acc32_sram.$proc$/home/minhnd/projects/CLA32_Floorplanning/src/acc32_sram.v:19$3'.
+Found async reset \rst in `\acc32.$proc$/home/minhnd/projects/CLA32_Floorplanning/src/acc32.v:18$7'.
+
+18. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~1 debug messages>
+
+19. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\acc32_sram.$proc$/home/minhnd/projects/CLA32_Floorplanning/src/acc32_sram.v:19$3'.
+     1/5: $0\valid_d1[0:0]
+     2/5: $0\valid_d3[0:0]
+     3/5: $0\valid_d2[0:0]
+     4/5: $0\dout0_q[31:0]
+     5/5: $0\rd_addr[7:0]
+Creating decoders for process `\acc32.$proc$/home/minhnd/projects/CLA32_Floorplanning/src/acc32.v:18$7'.
+     1/1: $0\acc[31:0]
+
+20. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+21. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\acc32_sram.\rd_addr' using process `\acc32_sram.$proc$/home/minhnd/projects/CLA32_Floorplanning/src/acc32_sram.v:19$3'.
+  created $adff cell `$procdff$52' with positive edge clock and positive level reset.
+Creating register for signal `\acc32_sram.\valid_d1' using process `\acc32_sram.$proc$/home/minhnd/projects/CLA32_Floorplanning/src/acc32_sram.v:19$3'.
+  created $adff cell `$procdff$55' with positive edge clock and positive level reset.
+Creating register for signal `\acc32_sram.\valid_d2' using process `\acc32_sram.$proc$/home/minhnd/projects/CLA32_Floorplanning/src/acc32_sram.v:19$3'.
+  created $adff cell `$procdff$58' with positive edge clock and positive level reset.
+Creating register for signal `\acc32_sram.\valid_d3' using process `\acc32_sram.$proc$/home/minhnd/projects/CLA32_Floorplanning/src/acc32_sram.v:19$3'.
+  created $adff cell `$procdff$61' with positive edge clock and positive level reset.
+Creating register for signal `\acc32_sram.\dout0_q' using process `\acc32_sram.$proc$/home/minhnd/projects/CLA32_Floorplanning/src/acc32_sram.v:19$3'.
+  created $adff cell `$procdff$64' with positive edge clock and positive level reset.
+Creating register for signal `\acc32.\acc' using process `\acc32.$proc$/home/minhnd/projects/CLA32_Floorplanning/src/acc32.v:18$7'.
+  created $adff cell `$procdff$67' with positive edge clock and positive level reset.
+
+22. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+23. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\acc32_sram.$proc$/home/minhnd/projects/CLA32_Floorplanning/src/acc32_sram.v:19$3'.
+Removing empty process `acc32_sram.$proc$/home/minhnd/projects/CLA32_Floorplanning/src/acc32_sram.v:19$3'.
+Removing empty process `acc32.$proc$/home/minhnd/projects/CLA32_Floorplanning/src/acc32.v:18$7'.
+Cleaned up 1 empty switch.
+
+24. Executing CHECK pass (checking for obvious problems).
+Checking module acc32_sram...
+Checking module cla4...
+Checking module cla32...
+Checking module acc32...
+Found and reported 0 problems.
+
+25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module acc32_sram.
+<suppressed ~7 debug messages>
+Optimizing module cla4.
+Optimizing module cla32.
+Optimizing module acc32.
+<suppressed ~1 debug messages>
+
+26. Executing FLATTEN pass (flatten design).
+Deleting now unused module cla4.
+Deleting now unused module cla32.
+Deleting now unused module acc32.
+<suppressed ~10 debug messages>
+
+27. Executing OPT_EXPR pass (perform const folding).
+Optimizing module acc32_sram.
+<suppressed ~9 debug messages>
+
+28. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \acc32_sram..
+Removed 22 unused cells and 125 unused wires.
+<suppressed ~24 debug messages>
+
+29. Executing OPT_EXPR pass (perform const folding).
+Optimizing module acc32_sram.
+
+30. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\acc32_sram'.
+<suppressed ~78 debug messages>
+Removed a total of 26 cells.
+
+31. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \acc32_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~5 debug messages>
+
+32. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \acc32_sram.
+Performed a total of 0 changes.
+
+33. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\acc32_sram'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+34. Executing OPT_DFF pass (perform DFF optimizations).
+
+35. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \acc32_sram..
+Removed 0 unused cells and 27 unused wires.
+<suppressed ~1 debug messages>
+
+36. Executing OPT_EXPR pass (perform const folding).
+Optimizing module acc32_sram.
+
+37. Rerunning OPT passes. (Maybe there is more to do…)
+
+38. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \acc32_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+39. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \acc32_sram.
+Performed a total of 0 changes.
+
+40. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\acc32_sram'.
+Removed a total of 0 cells.
+
+41. Executing OPT_DFF pass (perform DFF optimizations).
+
+42. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \acc32_sram..
+
+43. Executing OPT_EXPR pass (perform const folding).
+Optimizing module acc32_sram.
+
+44. Executing FSM pass (extract and optimize FSM).
+
+44.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+44.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+44.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+44.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \acc32_sram..
+
+44.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+44.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+44.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+44.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+45. Executing OPT_EXPR pass (perform const folding).
+Optimizing module acc32_sram.
+
+46. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\acc32_sram'.
+Removed a total of 0 cells.
+
+47. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \acc32_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+48. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \acc32_sram.
+Performed a total of 0 changes.
+
+49. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\acc32_sram'.
+Removed a total of 0 cells.
+
+50. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$52 ($adff) from module acc32_sram (D = $add$/home/minhnd/projects/CLA32_Floorplanning/src/acc32_sram.v:30$5_Y, Q = \rd_addr).
+
+51. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \acc32_sram..
+Removed 1 unused cells and 1 unused wires.
+<suppressed ~2 debug messages>
+
+52. Executing OPT_EXPR pass (perform const folding).
+Optimizing module acc32_sram.
+
+53. Rerunning OPT passes. (Maybe there is more to do…)
+
+54. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \acc32_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+55. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \acc32_sram.
+Performed a total of 0 changes.
+
+56. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\acc32_sram'.
+Removed a total of 0 cells.
+
+57. Executing OPT_DFF pass (perform DFF optimizations).
+
+58. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \acc32_sram..
+
+59. Executing OPT_EXPR pass (perform const folding).
+Optimizing module acc32_sram.
+
+60. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 4) from port Y of cell acc32_sram.$flatten\acc_core.\adder.\cla_blocks[7].block.$and$/home/minhnd/projects/CLA32_Floorplanning/src/cla4.v:12$9 ($and).
+Removed top 1 bits (of 4) from port A of cell acc32_sram.$flatten\acc_core.\adder.\cla_blocks[7].block.$and$/home/minhnd/projects/CLA32_Floorplanning/src/cla4.v:12$9 ($and).
+Removed top 1 bits (of 4) from port B of cell acc32_sram.$flatten\acc_core.\adder.\cla_blocks[7].block.$and$/home/minhnd/projects/CLA32_Floorplanning/src/cla4.v:12$9 ($and).
+
+61. Executing PEEPOPT pass (run peephole optimizers).
+
+62. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \acc32_sram..
+
+63. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module acc32_sram:
+  creating $macc model for $add$/home/minhnd/projects/CLA32_Floorplanning/src/acc32_sram.v:30$5 ($add).
+  creating $alu model for $macc $add$/home/minhnd/projects/CLA32_Floorplanning/src/acc32_sram.v:30$5.
+  creating $alu cell for $add$/home/minhnd/projects/CLA32_Floorplanning/src/acc32_sram.v:30$5: $auto$alumacc.cc:485:replace_alu$79
+  created 1 $alu and 0 $macc cells.
+
+64. Executing SHARE pass (SAT-based resource sharing).
+
+65. Executing OPT_EXPR pass (perform const folding).
+Optimizing module acc32_sram.
+
+66. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\acc32_sram'.
+Removed a total of 0 cells.
+
+67. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \acc32_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+68. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \acc32_sram.
+Performed a total of 0 changes.
+
+69. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\acc32_sram'.
+Removed a total of 0 cells.
+
+70. Executing OPT_DFF pass (perform DFF optimizations).
+
+71. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \acc32_sram..
+
+72. Executing OPT_EXPR pass (perform const folding).
+Optimizing module acc32_sram.
+
+73. Executing MEMORY pass.
+
+73.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+73.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+73.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+73.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+73.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+73.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \acc32_sram..
+
+73.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+73.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+73.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \acc32_sram..
+
+73.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+74. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \acc32_sram..
+
+75. Executing OPT_EXPR pass (perform const folding).
+Optimizing module acc32_sram.
+<suppressed ~3 debug messages>
+
+76. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\acc32_sram'.
+Removed a total of 0 cells.
+
+77. Executing OPT_DFF pass (perform DFF optimizations).
+
+78. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \acc32_sram..
+
+79. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+80. Executing OPT_EXPR pass (perform const folding).
+Optimizing module acc32_sram.
+
+81. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\acc32_sram'.
+Removed a total of 0 cells.
+
+82. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \acc32_sram..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+83. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \acc32_sram.
+Performed a total of 0 changes.
+
+84. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\acc32_sram'.
+Removed a total of 0 cells.
+
+85. Executing OPT_SHARE pass.
+
+86. Executing OPT_DFF pass (perform DFF optimizations).
+
+87. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \acc32_sram..
+
+88. Executing OPT_EXPR pass (perform const folding).
+Optimizing module acc32_sram.
+
+89. Executing TECHMAP pass (map to technology primitives).
+
+89.1. Executing Verilog-2005 frontend: /nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+89.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $mux.
+Using template $paramod$c3cd1564c35d873179656addd6052d7ea8b6d991\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $adffe.
+Using extmapper simplemap for cells of type $adff.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001000 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~483 debug messages>
+
+90. Executing OPT_EXPR pass (perform const folding).
+Optimizing module acc32_sram.
+<suppressed ~43 debug messages>
+
+91. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\acc32_sram'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+92. Executing OPT_DFF pass (perform DFF optimizations).
+
+93. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \acc32_sram..
+Removed 10 unused cells and 44 unused wires.
+<suppressed ~11 debug messages>
+
+94. Executing OPT_EXPR pass (perform const folding).
+Optimizing module acc32_sram.
+
+95. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\acc32_sram'.
+Removed a total of 0 cells.
+
+96. Executing OPT_DFF pass (perform DFF optimizations).
+
+97. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \acc32_sram..
+
+98. Executing ABC pass (technology mapping using ABC).
+
+98.1. Extracting gate netlist of module `\acc32_sram' to `<abc-temp-dir>/input.blif'..
+Extracted 337 gates and 420 wires to a netlist network with 82 inputs and 49 outputs.
+
+98.1.1. Executing ABC.
+Running ABC command: "/nix/store/6l3aj1gi4lja8z5s4lan2k2cfz9mqkrz-yosys-abc/bin/abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: Entered genlib library with 13 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+98.1.2. Re-integrating ABC results.
+ABC RESULTS:               MUX cells:        8
+ABC RESULTS:               NOT cells:       17
+ABC RESULTS:             ORNOT cells:        7
+ABC RESULTS:                OR cells:       28
+ABC RESULTS:               NOR cells:       36
+ABC RESULTS:              XNOR cells:       19
+ABC RESULTS:              NAND cells:       25
+ABC RESULTS:            ANDNOT cells:      131
+ABC RESULTS:               AND cells:       30
+ABC RESULTS:               XOR cells:       51
+ABC RESULTS:        internal signals:      289
+ABC RESULTS:           input signals:       82
+ABC RESULTS:          output signals:       49
+Removing temp directory.
+
+99. Executing OPT pass (performing simple optimizations).
+
+99.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module acc32_sram.
+
+99.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\acc32_sram'.
+Removed a total of 0 cells.
+
+99.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+99.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \acc32_sram..
+Removed 0 unused cells and 313 unused wires.
+<suppressed ~24 debug messages>
+
+99.5. Finished fast OPT passes.
+
+100. Executing HIERARCHY pass (managing design hierarchy).
+
+100.1. Analyzing design hierarchy..
+Top module:  \acc32_sram
+
+100.2. Analyzing design hierarchy..
+Top module:  \acc32_sram
+Removed 0 unused modules.
+
+101. Executing CHECK pass (checking for obvious problems).
+Checking module acc32_sram...
+Found and reported 0 problems.
+
+102. Printing statistics.
+
+=== acc32_sram ===
+
+   Number of wires:                372
+   Number of wire bits:            775
+   Number of public wires:          67
+   Number of public wire bits:     456
+   Number of ports:                  6
+   Number of port bits:             75
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                437
+     $_ANDNOT_                     131
+     $_AND_                         30
+     $_DFFE_PP0N_                    8
+     $_DFF_PP0_                     66
+     $_MUX_                          8
+     $_NAND_                        25
+     $_NOR_                         36
+     $_NOT_                         17
+     $_ORNOT_                        7
+     $_OR_                          28
+     $_XNOR_                        19
+     $_XOR_                         51
+     $scopeinfo                     10
+     sky130_sram_1kbyte_1rw1r_32x256_8      1
+
+103. Generating Graphviz representation of design.
+Writing dot description to `/home/minhnd/projects/CLA32_Floorplanning/runs/acc32_sram_v10/06-yosys-synthesis/primitive_techmap.dot'.
+Dumping module acc32_sram to page 1.
+
+104. Executing OPT pass (performing simple optimizations).
+
+104.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module acc32_sram.
+
+104.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\acc32_sram'.
+Removed a total of 0 cells.
+
+104.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \acc32_sram..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+104.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \acc32_sram.
+Performed a total of 0 changes.
+
+104.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\acc32_sram'.
+Removed a total of 0 cells.
+
+104.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+104.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \acc32_sram..
+
+104.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module acc32_sram.
+
+104.9. Finished OPT passes. (There is nothing left to do.)
+
+105. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \acc32_sram..
+Removed 10 unused cells and 44 unused wires.
+<suppressed ~54 debug messages>
+{
+   "creator": "Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 17.0.6 -fPIC -O3)",
+   "invocation": "stat -json -liberty /home/minhnd/projects/CLA32_Floorplanning/runs/acc32_sram_v10/tmp/4f8ebf00bce34090b9ac1481d2836fa1.lib ",
+   "modules": {
+      "\\acc32_sram": {
+         "num_wires":         328,
+         "num_wire_bits":     545,
+         "num_pub_wires":     23,
+         "num_pub_wire_bits": 226,
+         "num_ports":         6,
+         "num_port_bits":     75,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         427,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 131,
+            "$_AND_": 30,
+            "$_DFFE_PP0N_": 8,
+            "$_DFF_PP0_": 66,
+            "$_MUX_": 8,
+            "$_NAND_": 25,
+            "$_NOR_": 36,
+            "$_NOT_": 17,
+            "$_ORNOT_": 7,
+            "$_OR_": 28,
+            "$_XNOR_": 19,
+            "$_XOR_": 51,
+            "sky130_sram_1kbyte_1rw1r_32x256_8": 1
+         }
+      }
+   },
+      "design": {
+         "num_wires":         328,
+         "num_wire_bits":     545,
+         "num_pub_wires":     23,
+         "num_pub_wire_bits": 226,
+         "num_ports":         6,
+         "num_port_bits":     75,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         427,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 131,
+            "$_AND_": 30,
+            "$_DFFE_PP0N_": 8,
+            "$_DFF_PP0_": 66,
+            "$_MUX_": 8,
+            "$_NAND_": 25,
+            "$_NOR_": 36,
+            "$_NOT_": 17,
+            "$_ORNOT_": 7,
+            "$_OR_": 28,
+            "$_XNOR_": 19,
+            "$_XOR_": 51,
+            "sky130_sram_1kbyte_1rw1r_32x256_8": 1
+         }
+      }
+}
+
+106. Printing statistics.
+
+=== acc32_sram ===
+
+   Number of wires:                328
+   Number of wire bits:            545
+   Number of public wires:          23
+   Number of public wire bits:     226
+   Number of ports:                  6
+   Number of port bits:             75
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                427
+     $_ANDNOT_                     131
+     $_AND_                         30
+     $_DFFE_PP0N_                    8
+     $_DFF_PP0_                     66
+     $_MUX_                          8
+     $_NAND_                        25
+     $_NOR_                         36
+     $_NOT_                         17
+     $_ORNOT_                        7
+     $_OR_                          28
+     $_XNOR_                        19
+     $_XOR_                         51
+     sky130_sram_1kbyte_1rw1r_32x256_8      1
+
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+   Area for cell type $_DFF_PP0_ is unknown!
+   Area for cell type $_DFFE_PP0N_ is unknown!
+   Area for cell type \sky130_sram_1kbyte_1rw1r_32x256_8 is unknown!
+
+[INFO] Applying tri-state buffer mapping from '/home/minhnd/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v'…
+
+107. Executing TECHMAP pass (map to technology primitives).
+
+107.1. Executing Verilog-2005 frontend: /home/minhnd/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v
+Parsing Verilog input from `/home/minhnd/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tribuff_map.v' to AST representation.
+Generating RTLIL representation for module `\$_TBUF_'.
+Successfully finished Verilog frontend.
+
+107.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~3 debug messages>
+
+108. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+[INFO] Applying latch mapping from '/home/minhnd/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v'…
+
+109. Executing TECHMAP pass (map to technology primitives).
+
+109.1. Executing Verilog-2005 frontend: /home/minhnd/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v
+Parsing Verilog input from `/home/minhnd/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.tech/openlane/sky130_fd_sc_hd/latch_map.v' to AST representation.
+Generating RTLIL representation for module `\$_DLATCH_P_'.
+Generating RTLIL representation for module `\$_DLATCH_N_'.
+Successfully finished Verilog frontend.
+
+109.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~4 debug messages>
+
+110. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+111. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell sky130_fd_sc_hd__dfxtp_2 (noninv, pins=3, area=21.27) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__dfbbn_2 (noninv, pins=6, area=35.03) is a direct match for cell type $_DFFSR_NNN_.
+  final dff cell mappings:
+    unmapped dff cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_2 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    unmapped dff cell: $_DFF_NN0_
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_2 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_2 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    \sky130_fd_sc_hd__dfbbn_2 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    unmapped dff cell: $_DFFSR_PNN_
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+111.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+Mapping DFF cells in module `\acc32_sram':
+  mapped 74 $_DFF_PN0_ cells to \sky130_fd_sc_hd__dfrtp_2 cells.
+{
+   "creator": "Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 17.0.6 -fPIC -O3)",
+   "invocation": "stat -json -liberty /home/minhnd/projects/CLA32_Floorplanning/runs/acc32_sram_v10/tmp/4f8ebf00bce34090b9ac1481d2836fa1.lib ",
+   "modules": {
+      "\\acc32_sram": {
+         "num_wires":         410,
+         "num_wire_bits":     627,
+         "num_pub_wires":     23,
+         "num_pub_wire_bits": 226,
+         "num_ports":         6,
+         "num_port_bits":     75,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         509,
+         "area":              1944.364800,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 131,
+            "$_AND_": 30,
+            "$_MUX_": 16,
+            "$_NAND_": 25,
+            "$_NOR_": 36,
+            "$_NOT_": 91,
+            "$_ORNOT_": 7,
+            "$_OR_": 28,
+            "$_XNOR_": 19,
+            "$_XOR_": 51,
+            "sky130_fd_sc_hd__dfrtp_2": 74,
+            "sky130_sram_1kbyte_1rw1r_32x256_8": 1
+         }
+      }
+   },
+      "design": {
+         "num_wires":         410,
+         "num_wire_bits":     627,
+         "num_pub_wires":     23,
+         "num_pub_wire_bits": 226,
+         "num_ports":         6,
+         "num_port_bits":     75,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         509,
+         "area":              1944.364800,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 131,
+            "$_AND_": 30,
+            "$_MUX_": 16,
+            "$_NAND_": 25,
+            "$_NOR_": 36,
+            "$_NOT_": 91,
+            "$_ORNOT_": 7,
+            "$_OR_": 28,
+            "$_XNOR_": 19,
+            "$_XOR_": 51,
+            "sky130_fd_sc_hd__dfrtp_2": 74,
+            "sky130_sram_1kbyte_1rw1r_32x256_8": 1
+         }
+      }
+}
+
+112. Printing statistics.
+
+=== acc32_sram ===
+
+   Number of wires:                410
+   Number of wire bits:            627
+   Number of public wires:          23
+   Number of public wire bits:     226
+   Number of ports:                  6
+   Number of port bits:             75
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                509
+     $_ANDNOT_                     131
+     $_AND_                         30
+     $_MUX_                         16
+     $_NAND_                        25
+     $_NOR_                         36
+     $_NOT_                         91
+     $_ORNOT_                        7
+     $_OR_                          28
+     $_XNOR_                        19
+     $_XOR_                         51
+     sky130_fd_sc_hd__dfrtp_2       74
+     sky130_sram_1kbyte_1rw1r_32x256_8      1
+
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_NOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+   Area for cell type \sky130_sram_1kbyte_1rw1r_32x256_8 is unknown!
+
+   Chip area for module '\acc32_sram': 1944.364800
+     of which used for sequential elements: 1944.364800 (100.00%)
+
+[INFO] Using generated ABC script '/home/minhnd/projects/CLA32_Floorplanning/runs/acc32_sram_v10/06-yosys-synthesis/AREA_0.abc'…
+
+113. Executing ABC pass (technology mapping using ABC).
+
+113.1. Extracting gate netlist of module `\acc32_sram' to `/tmp/yosys-abc-Yqioxo/input.blif'..
+Extracted 434 gates and 517 wires to a netlist network with 83 inputs and 123 outputs.
+
+113.1.1. Executing ABC.
+Running ABC command: "/nix/store/6l3aj1gi4lja8z5s4lan2k2cfz9mqkrz-yosys-abc/bin/abc" -s -f /tmp/yosys-abc-Yqioxo/abc.script 2>&1
+ABC: ABC command line: "source /tmp/yosys-abc-Yqioxo/abc.script".
+ABC: 
+ABC: + read_blif /tmp/yosys-abc-Yqioxo/input.blif 
+ABC: + read_lib -w /home/minhnd/projects/CLA32_Floorplanning/runs/acc32_sram_v10/tmp/4f8ebf00bce34090b9ac1481d2836fa1.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.03 sec
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_8".
+ABC: Library "sky130_fd_sc_hd__tt_025C_1v80" from "/home/minhnd/projects/CLA32_Floorplanning/runs/acc32_sram_v10/tmp/4f8ebf00bce34090b9ac1481d2836fa1.lib" has 175 cells (17 skipped: 14 seq; 3 tri-state; 0 no func; 0 dont_use).  Time =     0.04 sec
+ABC: Memory =    9.54 MB. Time =     0.04 sec
+ABC: Warning: Detected 2 multi-output gates (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + read_constr -v /home/minhnd/projects/CLA32_Floorplanning/runs/acc32_sram_v10/06-yosys-synthesis/synthesis.abc.sdc 
+ABC: Setting driving cell to be "sky130_fd_sc_hd__inv_2/Y".
+ABC: Setting output load to be 33.442001.
+ABC: + source /home/minhnd/projects/CLA32_Floorplanning/runs/acc32_sram_v10/06-yosys-synthesis/AREA_0.abc 
+ABC: Error: The network is combinational.
+ABC: Cannot find the default PI driving cell (sky130_fd_sc_hd__inv_2/Y) in the library.
+ABC: WireLoad = "none"  Gates =    309 ( 27.5 %)   Cap = 16.6 ff (  4.7 %)   Area =     2447.35 ( 68.9 %)   Delay =  3731.37 ps  (  7.8 %)               
+ABC: Path  0 --      28 : 0    3 pi                        A =   0.00  Df =   0.0   -0.0 ps  S =   0.0 ps  Cin =  0.0 ff  Cout =   8.9 ff  Cmax =   0.0 ff  G =    0  
+ABC: Path  1 --     302 : 3    3 sky130_fd_sc_hd__and3_2   A =   7.51  Df = 198.5  -21.1 ps  S =  66.4 ps  Cin =  1.5 ff  Cout =   7.7 ff  Cmax = 309.5 ff  G =  487  
+ABC: Path  2 --     310 : 4    3 sky130_fd_sc_hd__or4_2    A =   8.76  Df = 864.5 -527.0 ps  S = 108.0 ps  Cin =  1.5 ff  Cout =   4.7 ff  Cmax = 310.4 ff  G =  300  
+ABC: Path  3 --     317 : 2    1 sky130_fd_sc_hd__or2_2    A =   6.26  Df =1170.1 -733.8 ps  S =  52.2 ps  Cin =  1.5 ff  Cout =   2.5 ff  Cmax = 299.4 ff  G =  160  
+ABC: Path  4 --     336 : 5    2 sky130_fd_sc_hd__a2111o_2 A =  12.51  Df =1606.9 -747.2 ps  S =  65.3 ps  Cin =  2.4 ff  Cout =   4.1 ff  Cmax = 324.1 ff  G =  160  
+ABC: Path  5 --     340 : 5    2 sky130_fd_sc_hd__a311o_2  A =  11.26  Df =1994.4 -970.2 ps  S =  57.4 ps  Cin =  2.3 ff  Cout =   4.1 ff  Cmax = 298.5 ff  G =  170  
+ABC: Path  6 --     342 : 4    4 sky130_fd_sc_hd__a31o_2   A =   8.76  Df =2270.8-1054.3 ps  S =  94.9 ps  Cin =  2.4 ff  Cout =  13.7 ff  Cmax = 271.9 ff  G =  558  
+ABC: Path  7 --     345 : 4    4 sky130_fd_sc_hd__a211o_2  A =  10.01  Df =2608.8-1216.6 ps  S =  87.3 ps  Cin =  2.4 ff  Cout =  15.8 ff  Cmax = 325.0 ff  G =  644  
+ABC: Path  8 --     364 : 4    2 sky130_fd_sc_hd__a211oi_2 A =  12.51  Df =2801.4-1340.7 ps  S = 163.6 ps  Cin =  4.4 ff  Cout =   4.1 ff  Cmax =  88.8 ff  G =   89  
+ABC: Path  9 --     369 : 3    4 sky130_fd_sc_hd__o21ba_2  A =  10.01  Df =3003.8-1308.7 ps  S =  86.6 ps  Cin =  2.1 ff  Cout =  12.3 ff  Cmax = 264.6 ff  G =  559  
+ABC: Path 10 --     424 : 2    2 sky130_fd_sc_hd__nor2_2   A =   6.26  Df =3058.7-1229.2 ps  S = 145.5 ps  Cin =  4.4 ff  Cout =  11.0 ff  Cmax = 141.9 ff  G =  237  
+ABC: Path 11 --     428 : 4    1 sky130_fd_sc_hd__o211a_2  A =  10.01  Df =3294.7-1276.0 ps  S =  52.8 ps  Cin =  2.4 ff  Cout =   4.7 ff  Cmax = 268.3 ff  G =  184  
+ABC: Path 12 --     429 : 3    1 sky130_fd_sc_hd__nor3_2   A =  10.01  Df =3731.4 -494.0 ps  S = 578.5 ps  Cin =  4.4 ff  Cout =  33.4 ff  Cmax =  92.5 ff  G =  765  
+ABC: Start-point = pi27 (\acc_out [7]).  End-point = po44 (\acc_core.adder.cla_blocks[6].block.sum [2]).
+ABC: netlist                       : i/o =   83/  123  lat =    0  nd =   309  edge =    692  area =2447.57  delay =12.00  lev = 12
+ABC: + write_blif /tmp/yosys-abc-Yqioxo/output.blif 
+
+113.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__and4_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__or4b_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o21a_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nand3_2 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__nand2b_2 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__a21boi_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a2111o_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o21bai_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__or3b_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a311o_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a31o_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a211oi_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__and2b_2 cells:        8
+ABC RESULTS:   sky130_fd_sc_hd__o311a_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__or4_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o22ai_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__mux2_1 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__a21bo_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__or2_2 cells:       25
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_2 cells:       31
+ABC RESULTS:   sky130_fd_sc_hd__nor2_2 cells:       12
+ABC RESULTS:   sky130_fd_sc_hd__o21ba_2 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__or3_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o211a_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nor3_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__xor2_2 cells:       11
+ABC RESULTS:   sky130_fd_sc_hd__a21o_2 cells:       19
+ABC RESULTS:   sky130_fd_sc_hd__and3_2 cells:       33
+ABC RESULTS:   sky130_fd_sc_hd__a211o_2 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__nand2_2 cells:        9
+ABC RESULTS:   sky130_fd_sc_hd__o221a_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o31a_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_2 cells:       22
+ABC RESULTS:   sky130_fd_sc_hd__inv_2 cells:       85
+ABC RESULTS:        internal signals:      311
+ABC RESULTS:           input signals:       83
+ABC RESULTS:          output signals:      123
+Removing temp directory.
+
+114. Executing SETUNDEF pass (replace undef values with defined constants).
+
+115. Executing HILOMAP pass (mapping to constant drivers).
+
+116. Executing SPLITNETS pass (splitting up multi-bit signals).
+
+117. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \acc32_sram..
+Removed 0 unused cells and 529 unused wires.
+<suppressed ~5 debug messages>
+
+118. Executing INSBUF pass (insert buffer cells for connected wires).
+
+119. Executing CHECK pass (checking for obvious problems).
+Checking module acc32_sram...
+Found and reported 0 problems.
+{
+   "creator": "Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 17.0.6 -fPIC -O3)",
+   "invocation": "stat -json -liberty /home/minhnd/projects/CLA32_Floorplanning/runs/acc32_sram_v10/tmp/4f8ebf00bce34090b9ac1481d2836fa1.lib ",
+   "modules": {
+      "\\acc32_sram": {
+         "num_wires":         436,
+         "num_wire_bits":     505,
+         "num_pub_wires":     153,
+         "num_pub_wire_bits": 222,
+         "num_ports":         6,
+         "num_port_bits":     75,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         399,
+         "area":              4448.016000,
+         "num_cells_by_type": {
+            "sky130_fd_sc_hd__a2111o_2": 1,
+            "sky130_fd_sc_hd__a211o_2": 5,
+            "sky130_fd_sc_hd__a211oi_2": 2,
+            "sky130_fd_sc_hd__a21bo_2": 2,
+            "sky130_fd_sc_hd__a21boi_2": 1,
+            "sky130_fd_sc_hd__a21o_2": 19,
+            "sky130_fd_sc_hd__a21oi_2": 31,
+            "sky130_fd_sc_hd__a311o_2": 1,
+            "sky130_fd_sc_hd__a31o_2": 2,
+            "sky130_fd_sc_hd__and2b_2": 8,
+            "sky130_fd_sc_hd__and3_2": 33,
+            "sky130_fd_sc_hd__and4_2": 1,
+            "sky130_fd_sc_hd__conb_1": 15,
+            "sky130_fd_sc_hd__dfrtp_2": 74,
+            "sky130_fd_sc_hd__inv_2": 85,
+            "sky130_fd_sc_hd__mux2_1": 7,
+            "sky130_fd_sc_hd__nand2_2": 9,
+            "sky130_fd_sc_hd__nand2b_2": 4,
+            "sky130_fd_sc_hd__nand3_2": 5,
+            "sky130_fd_sc_hd__nor2_2": 12,
+            "sky130_fd_sc_hd__nor3_2": 1,
+            "sky130_fd_sc_hd__o211a_2": 2,
+            "sky130_fd_sc_hd__o21a_2": 1,
+            "sky130_fd_sc_hd__o21ba_2": 5,
+            "sky130_fd_sc_hd__o21bai_2": 2,
+            "sky130_fd_sc_hd__o221a_2": 1,
+            "sky130_fd_sc_hd__o22ai_2": 1,
+            "sky130_fd_sc_hd__o311a_2": 1,
+            "sky130_fd_sc_hd__o31a_2": 2,
+            "sky130_fd_sc_hd__or2_2": 25,
+            "sky130_fd_sc_hd__or3_2": 2,
+            "sky130_fd_sc_hd__or3b_2": 2,
+            "sky130_fd_sc_hd__or4_2": 2,
+            "sky130_fd_sc_hd__or4b_2": 1,
+            "sky130_fd_sc_hd__xnor2_2": 22,
+            "sky130_fd_sc_hd__xor2_2": 11,
+            "sky130_sram_1kbyte_1rw1r_32x256_8": 1
+         }
+      }
+   },
+      "design": {
+         "num_wires":         436,
+         "num_wire_bits":     505,
+         "num_pub_wires":     153,
+         "num_pub_wire_bits": 222,
+         "num_ports":         6,
+         "num_port_bits":     75,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         399,
+         "area":              4448.016000,
+         "num_cells_by_type": {
+            "sky130_fd_sc_hd__a2111o_2": 1,
+            "sky130_fd_sc_hd__a211o_2": 5,
+            "sky130_fd_sc_hd__a211oi_2": 2,
+            "sky130_fd_sc_hd__a21bo_2": 2,
+            "sky130_fd_sc_hd__a21boi_2": 1,
+            "sky130_fd_sc_hd__a21o_2": 19,
+            "sky130_fd_sc_hd__a21oi_2": 31,
+            "sky130_fd_sc_hd__a311o_2": 1,
+            "sky130_fd_sc_hd__a31o_2": 2,
+            "sky130_fd_sc_hd__and2b_2": 8,
+            "sky130_fd_sc_hd__and3_2": 33,
+            "sky130_fd_sc_hd__and4_2": 1,
+            "sky130_fd_sc_hd__conb_1": 15,
+            "sky130_fd_sc_hd__dfrtp_2": 74,
+            "sky130_fd_sc_hd__inv_2": 85,
+            "sky130_fd_sc_hd__mux2_1": 7,
+            "sky130_fd_sc_hd__nand2_2": 9,
+            "sky130_fd_sc_hd__nand2b_2": 4,
+            "sky130_fd_sc_hd__nand3_2": 5,
+            "sky130_fd_sc_hd__nor2_2": 12,
+            "sky130_fd_sc_hd__nor3_2": 1,
+            "sky130_fd_sc_hd__o211a_2": 2,
+            "sky130_fd_sc_hd__o21a_2": 1,
+            "sky130_fd_sc_hd__o21ba_2": 5,
+            "sky130_fd_sc_hd__o21bai_2": 2,
+            "sky130_fd_sc_hd__o221a_2": 1,
+            "sky130_fd_sc_hd__o22ai_2": 1,
+            "sky130_fd_sc_hd__o311a_2": 1,
+            "sky130_fd_sc_hd__o31a_2": 2,
+            "sky130_fd_sc_hd__or2_2": 25,
+            "sky130_fd_sc_hd__or3_2": 2,
+            "sky130_fd_sc_hd__or3b_2": 2,
+            "sky130_fd_sc_hd__or4_2": 2,
+            "sky130_fd_sc_hd__or4b_2": 1,
+            "sky130_fd_sc_hd__xnor2_2": 22,
+            "sky130_fd_sc_hd__xor2_2": 11,
+            "sky130_sram_1kbyte_1rw1r_32x256_8": 1
+         }
+      }
+}
+
+120. Printing statistics.
+
+=== acc32_sram ===
+
+   Number of wires:                436
+   Number of wire bits:            505
+   Number of public wires:         153
+   Number of public wire bits:     222
+   Number of ports:                  6
+   Number of port bits:             75
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                399
+     sky130_fd_sc_hd__a2111o_2       1
+     sky130_fd_sc_hd__a211o_2        5
+     sky130_fd_sc_hd__a211oi_2       2
+     sky130_fd_sc_hd__a21bo_2        2
+     sky130_fd_sc_hd__a21boi_2       1
+     sky130_fd_sc_hd__a21o_2        19
+     sky130_fd_sc_hd__a21oi_2       31
+     sky130_fd_sc_hd__a311o_2        1
+     sky130_fd_sc_hd__a31o_2         2
+     sky130_fd_sc_hd__and2b_2        8
+     sky130_fd_sc_hd__and3_2        33
+     sky130_fd_sc_hd__and4_2         1
+     sky130_fd_sc_hd__conb_1        15
+     sky130_fd_sc_hd__dfrtp_2       74
+     sky130_fd_sc_hd__inv_2         85
+     sky130_fd_sc_hd__mux2_1         7
+     sky130_fd_sc_hd__nand2_2        9
+     sky130_fd_sc_hd__nand2b_2       4
+     sky130_fd_sc_hd__nand3_2        5
+     sky130_fd_sc_hd__nor2_2        12
+     sky130_fd_sc_hd__nor3_2         1
+     sky130_fd_sc_hd__o211a_2        2
+     sky130_fd_sc_hd__o21a_2         1
+     sky130_fd_sc_hd__o21ba_2        5
+     sky130_fd_sc_hd__o21bai_2       2
+     sky130_fd_sc_hd__o221a_2        1
+     sky130_fd_sc_hd__o22ai_2        1
+     sky130_fd_sc_hd__o311a_2        1
+     sky130_fd_sc_hd__o31a_2         2
+     sky130_fd_sc_hd__or2_2         25
+     sky130_fd_sc_hd__or3_2          2
+     sky130_fd_sc_hd__or3b_2         2
+     sky130_fd_sc_hd__or4_2          2
+     sky130_fd_sc_hd__or4b_2         1
+     sky130_fd_sc_hd__xnor2_2       22
+     sky130_fd_sc_hd__xor2_2        11
+     sky130_sram_1kbyte_1rw1r_32x256_8      1
+
+   Area for cell type \sky130_sram_1kbyte_1rw1r_32x256_8 is unknown!
+
+   Chip area for module '\acc32_sram': 4448.016000
+     of which used for sequential elements: 1944.364800 (43.71%)
+
+121. Executing Verilog backend.
+Dumping module `\acc32_sram'.
+
+122. Executing JSON backend.
