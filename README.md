@@ -101,6 +101,6 @@ run).
 
 | Level | Status |
 |---|---|
-| 1 — Core Utilization | Complete — 4 designs × 3 targets, all failure modes characterized |
-| 2 — PDN Pitch | Complete — pitch-dependent IR drop trend observed on VGND |
-| 3 — Macro Placement | Functionally complete (synthesis/timing/LVS/antenna/KLayout DRC pass); Magic DRC blocked by a documented, unresolved OpenRAM/Magic layer-compatibility issue |
+| Core Utilization | Complete — 4 designs × 3 targets, all failure modes characterized |
+| PDN Pitch | Complete — pitch-dependent IR drop trend observed on VGND |
+| Macro Placement | Functionally complete (synthesis/timing/LVS/antenna/KLayout DRC pass); Magic DRC blocked by a documented, unresolved OpenRAM/Magic layer-compatibility issue |
